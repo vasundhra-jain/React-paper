@@ -1,4 +1,5 @@
 import { Component } from "react";
+import './index.css'
 import CategoryPhoto from "../CategoryPhoto";
 
 const apiStatusConstants = {
@@ -48,24 +49,26 @@ class ImageSearcher extends Component {
         const { results } = photos
         const{searchInput}=this.state
         return (
-            
-            <ul>
-                <div>
-                    <h1>{searchInput}</h1>
+            <div>
+                <div className="search-heading">
+                    <p>{searchInput}</p>
                 </div>
+            <ul className="image-container">
+                
                 {results.map(each => (
                     <CategoryPhoto detail={each} key={each.id} />
                 ))}
             </ul>
+            </div>
         )
     }
 
     renderFailureView = () => {
-        <h1>Failed</h1>
+        <h1>Something went wrong. Please try again</h1>
     }
 
     renderProgressView = () => {
-        <h1>Progress</h1>
+        <h1>Loading...</h1>
     }
 
     renderSearchResults = () => {
@@ -85,12 +88,12 @@ class ImageSearcher extends Component {
     render() {
         const{searchInput}=this.state
         return(
-        <div>
-            <div>
-                <h1>Image Searcher</h1>
-                <div>
-                    <input type="search" onChange={this.onChangeSearchInput} value={searchInput} />
-                    <button onClick={this.getPhotos}>Search</button>
+        <div className="web-container">
+            <div className="web-container">
+                <h1 className="web-heading">Image Searcher</h1>
+                <div className="search-container">
+                    <input className="input" type="search" onChange={this.onChangeSearchInput} value={searchInput} />
+                    <button className="search-button" onClick={this.getPhotos}>Search</button>
                 </div>
                 <div>
                     {this.renderSearchResults()}

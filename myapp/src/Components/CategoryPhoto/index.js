@@ -1,11 +1,14 @@
-const CategoryPhoto=(props)=>{
-    const{detail}=props
-    const{urls}=detail
-    const{thumb}=urls
+import './index.css'
 
-    return(
+const CategoryPhoto = (props) => {
+    const { detail } = props
+    const { urls, description } = detail
+    const { thumb } = urls
+
+    return (
         <li>
-            <img src={thumb} alt="categoryimage" />
+            <img src={thumb} className='image' alt="categoryimage" />
+            <a className="anchor" href={thumb}>{description}</a>
         </li>
     )
 }
