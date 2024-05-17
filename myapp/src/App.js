@@ -1,10 +1,11 @@
 
 import './App.css';
+import ImageSearcher from './Components/ImageSearcher';
 
 function App() {
   return (
     <div className="App">
-      App
+      <ImageSearcher/>
     </div>
   );
 }
